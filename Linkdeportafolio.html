@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Portafolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #f9fafb;
+      color: #333;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #111;
+    }
+
+    header p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.5rem;
+      color: #111;
+    }
+
+    .project-card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hola, soy Alejandro</h1>
+    <p>Estos son algunos de mis proyectos favoritos realizados al paso del tiempo👇</p>
+  </header>
+
+  <div class="projects-container" id="projects">
+    <!-- Proyectos se insertarán aquí dinámicamente -->
+  </div>
+
+  <footer>
+    © 2025 Alejandro Domínguez — Portafolio
+  </footer>
+
+  <script>
+    const proyectos = [
+      {
+        titulo: "App en java para La granaja Del Tio memo",
+        descripcion: "Una aplicación simple que utiliza como lenguaje principal Java y la base de datos MySQL.",
+        enlace: "https://github.com/StyielD/Aplicacion_iphonky"
+      },
+      {
+        titulo: "App en java para la iphonky",
+        descripcion: "Realizado en Java, esta aplicación permite gestionar la información de los clientes.",
+        enlace: "https://github.com/tuusuario/tareas-flask"
+      },
+      {
+        titulo: "Juego de miedo en unity",
+        descripcion: "Mi primerjuego programador en Unity, un juego de miedo en primera persona.",
+        enlace: "https://github.com/StyielD/Juego_Unity_Miedo"
+      }
+    ];
+
+    const container = document.getElementById("projects");
+    proyectos.forEach(proyecto => {
+      const card = document.createElement("div");
+      card.className = "project-card";
+      card.innerHTML = `
+        <h3>${proyecto.titulo}</h3>
+        <p>${proyecto.descripcion}</p>
+        <a href="${proyecto.enlace}" target="_blank">Ver proyecto</a>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
